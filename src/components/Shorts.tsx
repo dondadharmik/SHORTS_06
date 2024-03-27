@@ -38,7 +38,7 @@ const Shorts: React.FC = () => {
 
   const videosToShow = isMobile ? 2: 5;
   const videoHeight = isMobile ? "300px" : "400px";
-  const videoWidth = isMobile ? "190px" : "px";
+  const videoWidth = isMobile ? "170px" : "px";
 
   return (
     <section className="px-4 py-8">
