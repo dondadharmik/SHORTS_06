@@ -19,7 +19,6 @@ const videoUrls = [
   "https://res.cloudinary.com/dhenxlgm5/video/upload/v1711530824/demo/vid15.mp4",
 ];
 
-
 const Shorts: React.FC = () => {
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
@@ -37,7 +36,7 @@ const Shorts: React.FC = () => {
     router.push(`/video/${videoIndex}`);
   };
 
-  const videosToShow = isMobile ? 2 : 5;
+  const videosToShow = isMobile ? 2: 5;
   const videoHeight = isMobile ? "300px" : "400px";
   const videoWidth = isMobile ? "170px" : "250px";
 
@@ -50,10 +49,10 @@ const Shorts: React.FC = () => {
             <div
               key={index}
               className="border rounded-md overflow-hidden mx-2 my-2"
-              style={{ height: videoHeight, width: videoWidth }}
+              style={{ height: videoHeight, width:videoWidth }}
               onClick={() => handleVideoClick(index)}
             >
-              <video autoPlay loop muted className="w-full h-full" style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+              <video autoPlay loop muted className="w-full h-full">
                 <source src={videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -66,10 +65,10 @@ const Shorts: React.FC = () => {
               <div
                 key={index}
                 className="border rounded-md overflow-hidden mx-2 my-2"
-                style={{ height: videoHeight, width: videoWidth }}
+                style={{ height: videoHeight,width: videoWidth }}
                 onClick={() => handleVideoClick(Math.floor(videosToShow) + index)}
               >
-                <video autoPlay loop muted className="w-full h-full" style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+                <video autoPlay loop muted className="w-full h-full" >
                   <source src={videoUrl} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
