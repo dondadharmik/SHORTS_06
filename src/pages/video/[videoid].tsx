@@ -30,16 +30,14 @@ const VideoPage: React.FC = () => {
     setCurrentIndex(Number(videoid) || 0);
 
     const handleScroll = (event: WheelEvent) => {
-  if (event.deltaY > 0) {
-    playNextVideo();
-  } else {
-    playPreviousVideo();
-  }
-};
-
+      if (event.deltaY > 0) {
+        playNextVideo();
+      } else {
+        playPreviousVideo();
+      }
+    };
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (!isMobile) return; // Only handle keyboard events on mobile
       if (event.key === "ArrowDown" || event.key === "ArrowRight") {
         playNextVideo();
       } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
