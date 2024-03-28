@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -22,12 +23,12 @@ const videoUrls = [
 
 const VideoPage: React.FC = () => {
   const router = useRouter();
-  const { videoid } = router.query;
-  const [currentIndex, setCurrentIndex] = useState(Number(videoid) || 0);
+  const { videoId } = router.query;
+  const [currentIndex, setCurrentIndex] = useState(Number(videoId) || 0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setCurrentIndex(Number(videoid) || 0);
+    setCurrentIndex(Number(videoId) || 0);
 
     const handleScroll = (event: WheelEvent) => {
       if (event.deltaY > 0) {
@@ -62,7 +63,7 @@ const VideoPage: React.FC = () => {
       window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [videoid, isMobile]);
+  }, [videoId, isMobile]);
 
   const playPreviousVideo = () => {
     const newIndex = (currentIndex - 1 + videoUrls.length) % videoUrls.length;
@@ -118,20 +119,34 @@ const VideoPage: React.FC = () => {
             <source src={videoUrls[currentIndex]} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div
-          style={{
-            position: "absolute",
-            bottom: "150px",
-            right: "10px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <button className="text-3xl font-bold">&#9825;</button>
-          <Image src="/comment.png" alt="comment" width={20} height={20} className="mt-7"/>
-          <Image src="/share.png" alt="share" width={20} height={20} className="mt-7"/>
-        </div>
+          {(isMobile || currentIndex % 2 === 0) && ( // Show share button conditionally based on mobile view or even index of video
+            <div
+              style={{
+                position: "absolute",
+                bottom: "150px",
+                right: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <button className="text-3xl font-bold">&#9825;</button>
+              <Image
+                src="/comment.png"
+                alt="comment"
+                width={20}
+                height={20}
+                className="mt-7"
+              />
+              <Image
+                src="/share.png"
+                alt="comment"
+                width={20}
+                height={20}
+                className="mt-7"
+              />
+            </div>
+          )}
         </div>
       </div>
       <div
