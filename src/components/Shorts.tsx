@@ -38,7 +38,7 @@ const Shorts: React.FC = () => {
 
   const videosToShow = isMobile ? 2: 5;
   const videoHeight = isMobile ? "300px" : "400px";
-  const videoWidth = isMobile ? "170px" : "250px";
+  const videoWidth = isMobile ? "170px" : "px";
 
   return (
     <section className="px-4 py-8">
@@ -52,7 +52,7 @@ const Shorts: React.FC = () => {
               style={{ height: videoHeight, width:videoWidth }}
               onClick={() => handleVideoClick(index)}
             >
-              <video autoPlay loop muted className="w-full h-full">
+              <video autoPlay loop muted className="w-full h-full" style={{ width: "100%", height: "100%", objectFit: "cover" }}>
                 <source src={videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
