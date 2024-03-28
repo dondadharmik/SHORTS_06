@@ -23,12 +23,12 @@ const videoUrls = [
 
 const VideoPage: React.FC = () => {
   const router = useRouter();
-  const { videoId } = router.query;
-  const [currentIndex, setCurrentIndex] = useState(Number(videoId) || 0);
+  const { videoid } = router.query;
+  const [currentIndex, setCurrentIndex] = useState(Number(videoid) || 0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setCurrentIndex(Number(videoId) || 0);
+    setCurrentIndex(Number(videoid) || 0);
 
     const handleTouchStart = (event: TouchEvent) => {
       const startY = event.touches[0].clientY;
@@ -59,7 +59,7 @@ const VideoPage: React.FC = () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("touchstart", handleTouchStart);
     };
-  }, [videoId, isMobile]);
+  }, [videoid, isMobile]);
 
   const playPreviousVideo = () => {
     const newIndex = (currentIndex - 1 + videoUrls.length) % videoUrls.length;
