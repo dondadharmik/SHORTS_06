@@ -17,7 +17,6 @@ const videoUrls = [
   "https://res.cloudinary.com/dhenxlgm5/video/upload/v1711530824/demo/vid13.mp4",
   "https://res.cloudinary.com/dhenxlgm5/video/upload/v1711530824/demo/vid14.mp4",
   "https://res.cloudinary.com/dhenxlgm5/video/upload/v1711530824/demo/vid15.mp4",
-  "https://res.cloudinary.com/dhenxlgm5/video/upload/v1711530824/demo/vid16.mp4",
 ];
 
 const Shorts: React.FC = () => {
