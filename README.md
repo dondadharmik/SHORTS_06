@@ -19,12 +19,12 @@ Scroll up and down to watch videos in full screen on mobile view
 To run this project locally, follow these steps:
 
 # Clone the repository:
-  >> git clone <repository_url>
+   git clone https://github.com/dondadharmik/SHORTS_06.git
 
 # Install dependencies:
-  >> npm install
+   npm install
 # Start the development server:
-  >> npm run dev
+  npm run dev
 ## Usage
 * Visit the homepage to view the video feed.
 * Scroll horizontally to browse through videos.
